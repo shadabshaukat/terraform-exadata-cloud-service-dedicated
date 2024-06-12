@@ -27,8 +27,7 @@ variable cluster_scan_listener_port_tcp_ssl { default = "2484" }
 variable cluster_ssh_public_keys { default = "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAs4f9ua0AU3U08s3s7D75Z7gUkmV0WgAYL7bdolT4r/N98uGXgaa6t4AYN+wKN0gdnjbEWunmoPf0ico8Trqlto8Vdp52DlvOjMZ/26KdJu8b0ytzV/MDO8RZhmL7A/Cwcr9VcPoRoGpfY/PExMGZUXBT7XOQ+ModkkhjCCyLebnMhE7Dv8HjqGnQI9jxob/DhZ0M8Xz9j9OUK82cTUCwtRULYXRx2h9vL5wHp7HZIddNjdnssXADVBVbzerO4S7aRaKfdIEaZu8JL4JYoDrtxv/sWRB3IdSTgYco6augNcTTdkDefn+Qr2dLZFSvcqSY8lP6Tz+/Yp3SLCeWKys+xQ== shadab" }
 variable cluster_time_zone { default = "Australia/Sydney" }
 variable cluster_license_model { default = "LICENSE_INCLUDED" }
-## DB Homes 11g, 19c and Databases with Pluggable DB Variables ##
+## DB Home 19c and Databases with Pluggable DB Variables ##
 variable pdb_admin_password_19c { default = "YOurPassword1234#_" }
-variable admin_password_11g { default = "YOurPassword1234#_" }
 variable admin_password_19c { default = "YOurPassword1234#_" }
 variable pluggable_database_tde_wallet_password { default = "YOurPassword1234#_" }
