@@ -4,7 +4,7 @@
 #######################################################################
 
 ## Exadata Infrastructure ##
-resource "oci_database_cloud_exadata_infrastructure" "export_EE-MEL-EXACS-INFRA" {
+resource "oci_database_cloud_exadata_infrastructure" "export_COE-MEL-EXACS-INFRA" {
   availability_domain = var.availability_domain
   compartment_id = var.compartment_ocid
   compute_count  = var.compute_node_count_exadata_infra
@@ -49,14 +49,14 @@ resource "oci_database_cloud_exadata_infrastructure" "export_EE-MEL-EXACS-INFRA"
 # Data source to get DB servers
 data "oci_database_db_servers" "db_servers" {
   compartment_id = var.compartment_ocid
-  exadata_infrastructure_id = oci_database_cloud_exadata_infrastructure.export_EE-MEL-EXACS-INFRA.id
+  exadata_infrastructure_id = oci_database_cloud_exadata_infrastructure.export_COE-MEL-EXACS-INFRA.id
 }
 
 ## VM Cluster ##
-resource "oci_database_cloud_vm_cluster" "export_EE-MEL-PRD-EXACS-DB" {
+resource "oci_database_cloud_vm_cluster" "export_COE-MEL-PRD-EXACS-DB" {
   backup_network_nsg_ids = []
   backup_subnet_id                = var.backup_subnet_ocid
-  cloud_exadata_infrastructure_id = oci_database_cloud_exadata_infrastructure.export_EE-MEL-EXACS-INFRA.id
+  cloud_exadata_infrastructure_id = oci_database_cloud_exadata_infrastructure.export_COE-MEL-EXACS-INFRA.id
   cluster_name                    = var.exadb_cluster_name
   compartment_id                  = var.compartment_ocid
   cpu_core_count                  = var.cpu_core_count_combined
@@ -128,7 +128,7 @@ resource "oci_database_db_home" "export_DB-Home-19c" {
   display_name = "DB-Home-19c"
   is_unified_auditing_enabled = false
   source = "VM_CLUSTER_NEW"
-  vm_cluster_id = oci_database_cloud_vm_cluster.export_EE-MEL-PRD-EXACS-DB.id
+  vm_cluster_id = oci_database_cloud_vm_cluster.export_COE-MEL-PRD-EXACS-DB.id
 }
 
 ## Oracle 19c Database ##
@@ -174,7 +174,7 @@ resource "oci_database_db_home" "export_DB-Home-11g" {
   display_name = "DB-Home-11g"
   is_unified_auditing_enabled = false
   source = "VM_CLUSTER_NEW"
-  vm_cluster_id = oci_database_cloud_vm_cluster.export_EE-MEL-PRD-EXACS-DB.id
+  vm_cluster_id = oci_database_cloud_vm_cluster.export_COE-MEL-PRD-EXACS-DB.id
 }
 
 ## Oracle 11gR2 Database ##
