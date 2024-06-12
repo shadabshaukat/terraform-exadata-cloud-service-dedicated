@@ -118,15 +118,7 @@ resource "oci_database_database" "export_DB-Home-19c_database" {
   }
 }
 
-## Oracle 19c Pluggable Database 1 ##
-resource "oci_database_pluggable_database" "export_pluggable_database" {
-  container_database_id = oci_database_database.export_DB-Home-19c_database.id
-  pdb_name = "PDB1"
-  pdb_admin_password = var.pdb_admin_password_19c
-  tde_wallet_password = var.pluggable_database_tde_wallet_password
-}
-
-## Oracle 19c Pluggable Database 2 ##
+## Oracle 19c Extra Pluggable Database  ##
 resource "oci_database_pluggable_database" "export_pluggable_database_1" {
   container_database_id = oci_database_database.export_DB-Home-19c_database.id
   pdb_name = "PDB2"
